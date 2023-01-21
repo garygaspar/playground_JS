@@ -1,5 +1,5 @@
 // Capitalize the first letter of a string
-function capitalization (name = "gary") { // defaults to "gary" is empty
+function capitalization (name = "gary") { // defaults to "gary" if empty
     let capName = "";
     for (let i = 0; i < name.length; i++) {
         let letter = name.charAt(i)
