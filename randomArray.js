@@ -34,8 +34,8 @@ function listOccurrences (array) {
         let object1 = { num: element, occ: occurrences}
         newArray.push(object1)
     })
-    let NewArrayDupFee = newArray.filter((v,i,a)=>a.findIndex(v2=>(v2.num===v.num))===i)
-    return NewArrayDupFee
+    let newArrayDupFee = newArray.filter((v,i,a)=>a.findIndex(v2=>(v2.num===v.num))===i)
+    return newArrayDupFee
 }
 
 function displayOccurrenceMessage (array) {
@@ -45,8 +45,8 @@ function displayOccurrenceMessage (array) {
 }
 
 let myArray = createNumberArray(items)
-let MyArrayOccurrence = listOccurrences(myArray)
-let message = displayOccurrenceMessage (MyArrayOccurrence)
+let myArrayOccurrence = listOccurrences(myArray)
+let message = displayOccurrenceMessage (myArrayOccurrence)
 
 console.log(myArray)
 console.log(message)
