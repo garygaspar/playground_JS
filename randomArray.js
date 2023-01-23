@@ -1,33 +1,56 @@
 // Generate an array of random numbers between 0 & 10 and remove duplicates
 
-const items = 20
+const items = 15
 const range = 10
 
-let myArray = []
 
-
-function addToArray (items) {
+// create a random array
+function createNumberArray (items) {
+    let array = []
     for (let i = 0; i < items; i++) {
         const num = Math.floor(Math.random() * (range + 1))
-        myArray.push(num)
+        array.push(num)
     }
-    removeArrayDuplicates()
+    return array
+    
 }
 
-
-function removeArrayDuplicates () {
+// remove duplicates from numbered array
+function removeArrayDuplicates (array) {
     let duplicateFreeArray = []
-    myArray.forEach(element => {
+    array.forEach(element => {
         if (!duplicateFreeArray.includes(element)) {
             duplicateFreeArray.push(element)
         }
     })
-    myArray = duplicateFreeArray
+    return duplicateFreeArray
 }
 
-addToArray(items)
+function listOccurrences (array) {
+    let newArray = []
+    array.forEach(element => {
+        let filteredArray = array.filter(number => number === element)
+        let occurrences = filteredArray.length
+        let object1 = { num: element, occ: occurrences}
+        newArray.push(object1)
+    })
+    let NewArrayDupFee = newArray.filter((v,i,a)=>a.findIndex(v2=>(v2.num===v.num))===i)
+    return NewArrayDupFee
+}
+
+function displayOccurrenceMessage (array) {
+    array.forEach(element => {
+        console.log(`Number ${element.num} is present ${element.occ} times`)
+    })
+}
+
+let myArray = createNumberArray(items)
+let MyArrayOccurrence = listOccurrences(myArray)
+let message = displayOccurrenceMessage (MyArrayOccurrence)
 
 console.log(myArray)
+console.log(message)
+
 
 // FIRST TRY 
 
