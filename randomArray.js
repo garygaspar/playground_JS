@@ -26,6 +26,7 @@ function removeArrayDuplicates (array) {
     return duplicateFreeArray
 }
 
+// generate array of objects with number of occurrence for each number
 function listOccurrences (array) {
     let newArray = []
     array.forEach(element => {
@@ -38,18 +39,24 @@ function listOccurrences (array) {
     return newArrayDupFee
 }
 
-function displayOccurrenceMessage (array) {
-    array.forEach(element => {
+// Pass an array of objects with number of occurrence and log in console
+function displayOccurrenceMessage (arrayOfObjects) {
+    arrayOfObjects.forEach(element => {
         console.log(`Number ${element.num} is present ${element.occ} times`)
     })
 }
 
+// Initialise an array of numbers
 let myArray = createNumberArray(items)
-let myArrayOccurrence = listOccurrences(myArray)
-let message = displayOccurrenceMessage (myArrayOccurrence)
 
+// Create array of objects listing the occurrences of each number
+let myArrayOccurrence = listOccurrences(myArray)
+
+
+// Log array in console
 console.log(myArray)
-console.log(message)
+// Log in console number of occurences
+displayOccurrenceMessage(myArrayOccurrence)
 
 
 // FIRST TRY 
